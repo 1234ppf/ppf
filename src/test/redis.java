@@ -1,15 +1,24 @@
 import org.junit.Test;
+import org.springframework.test.context.ContextConfiguration;
+import ppf.bean.User;
+import ppf.service.IUserService;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
+import javax.annotation.Resource;
 
+@ContextConfiguration({"classpath:spring-redis.xml","classpath:spring-mvc.xml","classpath:spring-mybatis.xml"})
 public class redis {
+    @Resource
+    private IUserService userService;
 
     @Test
-    public void test1(){
-        Jedis jedis=new Jedis();
+    public void Test1(){
+        User user=userService.selectUserByName("ppf");
+        System.out.println(user);
     }
+
 
     @Test
     /**

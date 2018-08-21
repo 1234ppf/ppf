@@ -12,8 +12,15 @@
 
     <!-- 1、配置映射器与适配器 -->
     <mvc:annotation-driven></mvc:annotation-driven>
+
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-    <context:component-scan base-package="ppf.controller" />
+    <context:component-scan base-package="ppf" >
+    </context:component-scan>
+
+    <!-- 启用注解 -->
+    <context:annotation-config/>
+
+
     <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
     <!-- 输出对象转JSON支持   -->
     <bean id="stringConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -69,5 +76,9 @@
     <mvc:resources location="/" mapping="/**/*.jpg"/>
     <mvc:resources location="/" mapping="/**/*.mp3"/>
     <mvc:resources location="/" mapping="/**/*.mp4"/>
+
+    <!-- 引入同文件夹下的redis属性配置文件 -->
+    <import resource="spring-redis.xml"/>
+
 
 </beans>

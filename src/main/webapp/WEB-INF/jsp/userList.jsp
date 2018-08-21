@@ -18,6 +18,7 @@
         </tr>
     </c:forEach>
     </table>
+    <p>${user}</p>
 </div>
 </body>
 </html>

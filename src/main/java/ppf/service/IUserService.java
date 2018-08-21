@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IUserService {
 
-    User selectUser(long userId);
+    User selectUser(Integer userId);
 
     int insert(User user);
 

@@ -25,7 +25,7 @@ public class UserController {
 
     @RequestMapping("/showUser.do")
     public void selectUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        long userId = Long.parseLong(request.getParameter("id"));
+        Integer userId = Integer.parseInt(request.getParameter("id"));
         User user = userService.selectUser(userId);
         ObjectMapper mapper = new ObjectMapper();
         response.getWriter().write(mapper.writeValueAsString(user));
@@ -36,13 +36,13 @@ public class UserController {
     public String userLit(HttpServletRequest request){
         List<User> userList=userService.selectAll();
         User user = userService.selectUser(1);
+        request.setAttribute("user",user);
         request.setAttribute("userList",userList);
         return "userList";
     }
 
     @RequestMapping(value = "/imageFile",method = RequestMethod.POST)
     public String imageFile(HttpServletRequest request){
-        System.out.println(1111);
         String a=request.getParameter("file");
         System.out.println(a);
         return "userList";
@@ -50,7 +50,6 @@ public class UserController {
 
     @RequestMapping(value = "/userMessage")
     public String userMessage(HttpServletRequest request){
-        System.out.println(1111);
         return "aaa";
     }
 

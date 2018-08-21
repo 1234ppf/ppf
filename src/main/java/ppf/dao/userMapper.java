@@ -17,7 +17,7 @@ public interface userMapper {
 
     int updateByPrimaryKey(User record);
 
-    User selectUser(long userId);
+    User selectUser(Integer userId);
 
     List<User>  selectAll();
 

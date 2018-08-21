@@ -1,5 +1,6 @@
 package ppf.service.impl;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ppf.bean.User;
@@ -25,8 +26,8 @@ public class UserServiceImpl implements IUserService {
     @Resource
     private userMapper userDao;
 
-    /*@Cacheable("getUserById") //标注该方法查询的结果进入缓存，再次访问时直接读取缓存中的数据*/
-    public User selectUser(long userId) {
+    @Cacheable(value="User",key="#userId")//标注该方法查询的结果进入缓存，再次访问时直接读取缓存中的数据
+    public User selectUser(Integer userId) {
         return this.userDao.selectUser(userId);
     }
 
@@ -39,7 +40,8 @@ public class UserServiceImpl implements IUserService {
         return userDao.selectAll();
     }
 
-    @Override
+   @Override
+   @Cacheable(value="User",key="#username")//标注该方法查询的结果进入缓存，再次访问时直接读取缓存中的数据
     public User selectUserByName(String username) {
         return userDao.selectUserByName(username);
     }

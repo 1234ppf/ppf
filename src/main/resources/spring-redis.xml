@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:cache="http://www.springframework.org/schema/cache"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="
-     http://www.springframework.org/schema/beans
-     http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+     http://www.springframework.org/schema/cache
+     http://www.springframework.org/schema/cache/spring-cache.xsd
      http://www.springframework.org/schema/context
-     http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+     http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- 引入属性文件 -->
+
     <context:property-placeholder location="classpath:redis.properties" />
-
+    <!-- 启用缓存注解功能，这个是必须的，否则注解不会生效，另外，该注解一定要声明在spring主配置文件中才会生效 -->
+    <cache:annotation-driven cache-manager="redisCacheManager" />
 
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">
         <property name="maxIdle" value="${redis.maxIdle}" />
@@ -26,8 +29,9 @@
         <property name="hostName" value="${redis.host}" />
         <property name="password" value="${redis.pass}" />
     </bean>
+
     <!--redis操作模版,使用该对象可以操作redis  -->
-    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate" >
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.StringRedisTemplate" >
         <property name="connectionFactory" ref="connectionFactory" />
         <!--如果不配置Serializer，那么存储的时候缺省使用String，如果用User类型存储，那么会提示错误User can't cast to String！！  -->
         <property name="keySerializer" >
@@ -46,8 +50,23 @@
         <property name="enableTransactionSupport" value="false"></property>
     </bean >
 
-    <!--<bean id="redisUtil" class="com.zkxl.fep.redis.RedisUtil">
-        <property name="redisTemplate" ref="redisTemplate" />
-    </bean>-->
+
+
+    <!-- 配置RedisCacheManager -->
+    <bean id="redisCacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean class="ppf.util.RedisUtils">
+                    <property name="redisTemplate" ref="redisTemplate" />
+                    <property name="name" value="User"/>
+                    <!-- User名称要在类或方法的注解中使用 -->
+                </bean>
+            </set>
+        </property>
+    </bean>
+
+
+
+
 
 </beans>
