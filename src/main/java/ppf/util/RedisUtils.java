@@ -6,7 +6,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.concurrent.Callable;
 
 import org.springframework.cache.Cache;
 import org.springframework.cache.support.SimpleValueWrapper;

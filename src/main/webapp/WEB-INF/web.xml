@@ -48,7 +48,7 @@
   <listener>        <!--用来设定Listener接口-->
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class><!--定义Listener的类名称-->
   </listener>
-  <!-- 防止Spring内存溢出监听器  -->
+  <!-- 防止Spring内存溢出监听器,拦截器  -->
   <listener>
     <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
   </listener>

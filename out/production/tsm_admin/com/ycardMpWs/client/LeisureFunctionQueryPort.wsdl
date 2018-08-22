@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="LeisureFunctionQueryPort"
+ targetNamespace="http://192.168.104.60:9000/LeisureFunctionQueryPort.wsdl"
+ xmlns:tns="http://192.168.104.60:9000/LeisureFunctionQueryPort.wsdl"
+ xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+ xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ xmlns:ns="urn:LeisureFunctionQueryPort"
+ xmlns:SOAP="http://schemas.xmlsoap.org/wsdl/soap/"
+ xmlns:MIME="http://schemas.xmlsoap.org/wsdl/mime/"
+ xmlns:DIME="http://schemas.xmlsoap.org/ws/2002/04/dime/wsdl/"
+ xmlns:WSDL="http://schemas.xmlsoap.org/wsdl/"
+ xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+<types>
+
+ <schema targetNamespace="urn:LeisureFunctionQueryPort"
+  xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+  xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:ns="urn:LeisureFunctionQueryPort"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified"
+  attributeFormDefault="unqualified">
+  <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/"/>
+ </schema>
+
+</types>
+
+<message name="leisureFunctionQueryRequest">
+ <part name="inputMes" type="xsd:string"/>
+</message>
+
+<message name="leisureFunctionQueryResponse">
+ <part name="outputMes" type="xsd:string"/>
+</message>
+
+<portType name="LeisureFunctionQueryPortPortType">
+ <operation name="leisureFunctionQuery">
+  <documentation>Service definition of function ns__leisureFunctionQuery</documentation>
+  <input message="tns:leisureFunctionQueryRequest"/>
+  <output message="tns:leisureFunctionQueryResponse"/>
+ </operation>
+</portType>
+
+<binding name="LeisureFunctionQueryPort" type="tns:LeisureFunctionQueryPortPortType">
+ <SOAP:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+ <operation name="leisureFunctionQuery">
+  <SOAP:operation style="rpc" soapAction=""/>
+  <input>
+     <SOAP:body use="encoded" namespace="urn:LeisureFunctionQueryPort" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+  </input>
+  <output>
+     <SOAP:body use="encoded" namespace="urn:LeisureFunctionQueryPort" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+  </output>
+ </operation>
+</binding>
+
+<service name="LeisureFunctionQueryPort">
+ <documentation>gSOAP 2.8.0 generated service definition</documentation>
+ <port name="LeisureFunctionQueryPort" binding="tns:LeisureFunctionQueryPort">
+  <SOAP:address location="http://192.168.104.60:9000/LeisureFunctionQueryPort"/>
+ </port>
+</service>
+
+</definitions>
