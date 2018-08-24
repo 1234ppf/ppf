@@ -10,7 +10,7 @@
 
 
     <!-- 引入属性文件 -->
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:property-placeholder location="/WEB-INF/jdbc.properties"/>
 
 
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
