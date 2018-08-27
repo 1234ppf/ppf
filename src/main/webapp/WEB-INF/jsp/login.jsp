@@ -7,8 +7,19 @@
 <head>
     <script src="../../js/jquery-1.8.3.min.js"></script>
     <script src="../../js/jquery.validate.min.js"></script>
+    <style type="text/css">
+        .d1{
+            border:1px solid red;
+            width:30%;
+            height:30%;
+            text-align:center;
+            line-height:40px;
+            margin:0px auto;
+        }
+    </style>
 </head>
 <body>
+<div class="d1">
     <form action="/sys/login" id="loginForm" method="post"
           enctype="multipart/form-data" name="loginForm" >
         <div>
@@ -21,6 +32,7 @@
         </div>
             <input type="submit" value="登录"/>
     </form>
+</div>
 </body>
 </html>
 <script type="text/javascript">

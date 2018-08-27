@@ -49,18 +49,18 @@
                                         <div class="product__description">
                                             <div class="row mb-3">
                                                 <div class="col-12">
-                                                    <h2 class="tm-page-title">Welcome to My Hert</h2>
+                                                    <h2 class="tm-page-title">你的月亮，我的心</h2>
                                                 </div>
                                             </div>                                        
                                             <div class="row">
                                                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                                     <img src="../../img/welcome-1.jpg" class="img-fluid mb-3">
-                                                    <p>You can feel free to use this template for your websites. Please tell your friends about Tooplate website. Thank you.</p>
-                                                    <p>Vivamus placerat in nunc eget volutpat. Etiam tincidunt blandit sapien, sed posuere enim. Ut eget ornare lectus.</p>    
+                                                    <p>欢迎来到。。。</p>
+                                                    <p>哈哈哈哈</p>
                                                 </div>
                                                 <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                                    <p>Donec eu lectus ligula. Aenean pulvinar dolor et massa lacinia rhoncus sit amet sed mauris. Aliquam dictum nibh et consequat finibus.</p>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In magna mauris, malesuada ut diam eu, pellentesque fringilla orci.</p>
+                                                    <p>愚蠢</p>
+                                                    <p>傻瓜</p>
                                                     <img src="../../img/welcome-2.jpg" class="img-fluid">
                                                 </div>                                        
                                             </div>
@@ -80,15 +80,13 @@
                                             <div class="p-sm-4 p-2">
                                                 <div class="row mb-3">
                                                     <div class="col-12">
-                                                        <h2 class="tm-page-title">Background of Our Team</h2>        
+                                                        <h2 class="tm-page-title">来啊，快活啊，群聊啊</h2>
                                                     </div>
                                                 </div>
                                                 <div class="row tm-reverse-sm">
                                                     <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
-                                                        <p class="mb-4">Vestibulum aliquet, arcu accumsan lobortis bibendum, justo velit efficitur lorem, at pulvinar mi justo nec lacus. Nullam et libero aliquet, luctus nunc sit amet, tincidunt ligula. Sed finibus ante sed tortor cursus, nec malesuada lectus interdum.</p>
-                                                        <p class="mb-4">Sed ex turpis, vulputate in efficitur id, lobortis eget nibh. Pellentesque maximus ipsum eget velit imperdiet sodales. Suspendisse in blandit mi.</p>
-                                                        <p class="mb-5">Pellentesque finibus felis risus, ut malesuada felis viverra at. Quisque accumsan in mi non hendrerit.</p>
-                                                        <a href="#" class="btn tm-btn-gray">Read More</a>        
+                                                        <p class="mb-4">不想多说什么，聊啊聊啊</p>
+                                                        <a href="/chat/chatRoom" class="btn tm-btn-gray">进入聊天室</a>
                                                     </div>                                                
                                                     <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 mb-lg-0 mb-sm-4 mb-4">
                                                         <img src="../../img/team.jpg" class="img-fluid">

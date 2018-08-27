@@ -11,7 +11,7 @@
      http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 引入属性文件 -->
-    <context:property-placeholder location="/WEB-INF/redis.properties" />
+    <context:property-placeholder location="classpath:/properties/redis.properties" />
     <!-- 启用缓存注解功能，这个是必须的，否则注解不会生效，另外，该注解一定要声明在spring主配置文件中才会生效 -->
     <cache:annotation-driven cache-manager="redisCacheManager" />
 
