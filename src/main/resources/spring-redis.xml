@@ -66,7 +66,10 @@
     </bean>
 
 
-
+    <!--自定义redis工具类,在需要缓存的地方注入此类  -->
+    <bean id="redisUtil" class="ppf.util.RedisUtils">
+        <property name="redisTemplate" ref="redisTemplate" />
+    </bean>
 
 
 </beans>

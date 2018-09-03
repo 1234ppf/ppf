@@ -19,7 +19,8 @@ import java.util.List;
  * @Cacheable("a")注解的意义就是把该方法的查询结果放到redis中去，下一次再发起查询就去redis中去取，存在redis中的数据的key就是a；
  * @CacheEvict(value={"a","b"},allEntries=true) 的意思就是执行该方法后要清除redis中key名称为a,b的数据；
  */
-@Service
+
+@Service("userService")
 @Transactional
 public class UserServiceImpl implements IUserService {
 
@@ -40,11 +41,13 @@ public class UserServiceImpl implements IUserService {
         return userDao.selectAll();
     }
 
-   @Override
-   @Cacheable(value="User",key="#username")//标注该方法查询的结果进入缓存，再次访问时直接读取缓存中的数据
+    @Override
+    @Cacheable(value="User",key="#username")//标注该方法查询的结果进入缓存，再次访问时直接读取缓存中的数据
     public User selectUserByName(String username) {
         return userDao.selectUserByName(username);
     }
 
-
+    public List<User> selectElse(User user){
+        return userDao.selectElse(user);
+    }
 }

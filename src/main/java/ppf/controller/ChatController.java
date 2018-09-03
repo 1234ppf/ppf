@@ -4,16 +4,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import ppf.bean.User;
 import ppf.service.ConsumerService;
+import ppf.service.IUserService;
 import ppf.service.ProducerService;
 
 import javax.annotation.Resource;
 import javax.jms.Destination;
-import javax.jms.JMSException;
 import javax.jms.TextMessage;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping("/chat")
@@ -27,8 +29,15 @@ public class ChatController {
     @Autowired(required=false)
     ConsumerService consumerService;
 
+    @Resource
+    IUserService userService;
+
+
     @RequestMapping(value="/chatRoom")
     public String chatRoom (HttpServletRequest request){
+        User loginUser=(User)request.getSession().getAttribute("user");
+        List<User> elseUser=userService.selectElse(loginUser);
+        request.setAttribute("elseUser",elseUser);
         return "chat";
     }
 
@@ -44,4 +53,7 @@ public class ChatController {
     public @ResponseBody void receive()  {
         TextMessage x=consumerService.receive(destination);
     }
+
+
+
 }

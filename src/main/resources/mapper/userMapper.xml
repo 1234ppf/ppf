@@ -19,6 +19,11 @@
     id, email, password, username, role, status, regTime, regIp
   </sql>
 
+  <select id="selectElse" resultType="ppf.bean.User">
+    SELECT a.*
+      FROM `user` a
+      WHERE a.id != #{id}
+  </select>
 
   <select id="selectAll" resultType="ppf.bean.User">
     select * from user
